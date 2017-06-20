@@ -1,0 +1,84 @@
+    .slowWalk {
+         /* 填入动画样式规则 */
+          /*规定 @keyframes 动画的名称。*/
+    -webkit-animation-name: person-slow; 
+    /*规定动画完成一个周期所花费的秒或毫秒。默认是 0*/
+    -webkit-animation-duration: 1000ms;
+    /*规定动画被播放的次数。默认是 1。 infinite(循环播放)*/
+    -webkit-animation-iteration-count: infinite;
+    /*动画切换的方式是一帧一帧的改变*/
+    -webkit-animation-timing-function: steps(1, start);
+    -moz-animation-name: person-slow;
+    -moz-animation-duration: 1000ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: steps(1, start)
+    }
+    
+    /* 普通慢走 */
+    
+    @-webkit-keyframes person-slow {
+        0% {
+            background-image: url(../image/boy_08.png);
+        }
+        25% {
+            background-image: url(../image/boy_05.png);
+        }
+        50% {
+            background-image: url(../image/boy_10.png);
+        }
+        75% {
+            background-image: url(../image/boy_09.png);
+        }
+        100% {
+            background-image: url(../image/boy_08.png);
+        }
+    }
+    
+    @-moz-keyframes person-slow {
+       0% {
+            background-image: url(../image/boy_08.png);
+        }
+        25% {
+            background-image: url(../image/boy_05.png);
+        }
+        50% {
+            background-image: url(../image/boy_10.png);
+        }
+        75% {
+            background-image: url(../image/boy_09.png);
+        }
+        100% {
+            background-image: url(../image/boy_08.png);
+        }
+    }
+    .walkpaused{
+           -webkit-animation-play-state: paused;
+           -moz-animation-play-state: paused;
+    }
+
+    .rotation {
+            -webkit-animation-name: rotation;
+            -webkit-animation-duration: 30s;
+            -moz-animation-name: rotation;
+            -moz-animation-duration: 30s;
+    }
+        
+    @-webkit-keyframes rotation {
+            /*？*/
+    0%   {
+            transform: translateX(0) translateY(0);
+        }
+    100% {
+         transform: translateX(-2000px) translateY(400px);
+        }           
+    }
+        
+    @-moz-keyframes rotation {
+        /*？*/
+    0%   {
+        transform: translateX(0) translateY(0);
+        }
+    100% {
+        transform: translateX(-2000px) translateY(400px);
+        }
+    }
