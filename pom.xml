@@ -4,7 +4,7 @@
 	<groupId>com.wpp</groupId>
 	<artifactId>SpringBootTest</artifactId>
 	<version>0.0.1</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>SpringBootTest</name>
 	<url>http://maven.apache.org</url>
@@ -20,13 +20,44 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
+	<!-- 使用阿里 maven 库 -->
+	<repositories>
+		<repository>
+			<id>ali-maven</id>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
+		</repository>
+	</repositories>
 
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<!-- 去除内嵌tomcat -->
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
+
+		<!--添加servlet的依赖-->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 
 		<!-- 引入JSON包 -->
 		<dependency>
@@ -45,23 +76,35 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<!-- 引入Mybatis jar依赖包 -->
-		<!-- mybatis -->
-		<!--  <dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>3.2.8</version>
-		</dependency>
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.2</version>
-		</dependency>
-		-->
-		
+		 <!--mybatis-->
+ 		<!--<dependency>-->
+			<!--<groupId>org.mybatis</groupId>-->
+			<!--<artifactId>mybatis</artifactId>-->
+			<!--<version>3.2.8</version>-->
+		<!--</dependency>-->
+		<!--<dependency>-->
+			<!--<groupId>org.mybatis</groupId>-->
+			<!--<artifactId>mybatis-spring</artifactId>-->
+			<!--<version>1.2.2</version>-->
+		<!--</dependency>-->
+		<!---->
 		<dependency>
 			<groupId>org.mybatis.spring.boot</groupId>
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>1.1.1</version>
+		</dependency>
+
+		<!-- 分页插件 -->
+		<!--<dependency>-->
+			<!--<groupId>com.github.pagehelper</groupId>-->
+			<!--<artifactId>pagehelper-spring-boot-starter</artifactId>-->
+			<!--<version>1.1.0</version>-->
+		<!--</dependency>-->
+		<!-- alibaba的druid数据库连接池 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>1.1.0</version>
 		</dependency>
 
 	</dependencies>
@@ -74,7 +117,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>  
+                     <jvmArguments>-Dfile.encoding=UTF-8</jvmArguments>
                      <fork>true</fork><!-- 如果没有该项配置，可能devtools不会起作用 -->
                 </configuration>
 			</plugin>

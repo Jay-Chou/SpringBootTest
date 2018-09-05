@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.wpp.user.bean.User;
+import com.wpp.beans.User;
 import com.wpp.user.dao.IUserDao;
 import com.wpp.user.service.IUserService;
 

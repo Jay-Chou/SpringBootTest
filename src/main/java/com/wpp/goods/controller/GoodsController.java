@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wpp.goods.bean.Goods;
+import com.wpp.beans.Goods;
 import com.wpp.goods.service.GoodsService;
 
 import net.sf.json.JSONArray;

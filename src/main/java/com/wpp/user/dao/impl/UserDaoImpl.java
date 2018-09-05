@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.wpp.user.bean.User;
+import com.wpp.beans.User;
 import com.wpp.user.dao.IUserDao;
 
 import net.sf.json.JSONObject;
@@ -28,14 +28,15 @@ public class UserDaoImpl implements IUserDao {
 		String sql = "select * from user where userid = ?";
 		// RowMapper<User> rowMapper = new
 		// BeanPropertyRowMapper<User>(User.class);
-		return jdbcTemplate.queryForObject(sql, new RowMapper() {
+		return (User) jdbcTemplate.queryForObject(sql, new RowMapper() {
 
 			public Object mapRow(ResultSet paramResultSet, int paramInt) throws SQLException {
 				// TODO Auto-generated method stub
 				User oUser = new User();
 				oUser.setUserid(paramResultSet.getInt("userid"));
 				oUser.setUsername(paramResultSet.getString("username"));
-				return oUser;
+				return oUser
+						;
 			}
 		}, _id);
 		// return oUser;

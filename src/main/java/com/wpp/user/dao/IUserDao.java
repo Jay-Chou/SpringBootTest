@@ -2,7 +2,7 @@ package com.wpp.user.dao;
 
 import java.util.List;
 
-import com.wpp.user.bean.User;
+import com.wpp.beans.User;
 
 public interface IUserDao {
 	// 通过id查找用户信息

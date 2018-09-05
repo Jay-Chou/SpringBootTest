@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wpp.user.bean.User;
+import com.wpp.beans.User;
 import com.wpp.user.service.IUserService;
 
 import net.sf.json.JSONArray;

@@ -2,7 +2,7 @@ package com.wpp.user.service;
 
 import java.util.List;
 
-import com.wpp.user.bean.User;
+import com.wpp.beans.User;
 
 public interface IUserService {
 	
